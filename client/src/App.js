@@ -34,7 +34,7 @@ class App extends React.Component {
           {this.state.data.map((person) => (
             <ul>
               <li>{person.name}</li>
-              <li>{person.country}</li>
+              <li className="country">{person.country}</li>
             </ul>
           ))}
         </div>

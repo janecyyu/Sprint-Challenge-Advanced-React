@@ -28,18 +28,16 @@ export const Form = () => {
     <div className="Wrapper">
       <form onSubmit={handleSubmit}>
         <div className="Input">
-          <label htmlFor="input">Enter Player's Full Name: </label>
+          <label htmlFor="input">Full Name: </label>
             <input
               data-testid="input"
               className="Input-text"
               id="input"
               name="inputText"
               onChange={handlePlayerChanges}
-              placeholder="Enter Player's Full Name"
               type="text"
               value={player}
             />
-          
           <button data-testid="submit">Check if exist</button>
         </div>
       </form>
