@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import axios from "axios";
 
 export const Form = () => {
-  const [id, setId] = useState("");
   const [player, setPlayer, handlePlayerChanges] = useLocalStorage("player");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,11 +11,16 @@ export const Form = () => {
       .get(`http://localhost:5000/api/players`)
       .then((response) => {
         //console.log(response.data[0].name)
+        const list = [];
         response.data.map(person=>{
-            if(person.name===player){
-                alert(person.id);
-            }
+            list.push(person.name)
         })
+        //console.log(list);
+        if(list.includes(player)){
+            alert("yes")
+        }else{
+            alert('sorry, not found')
+        }
       })
       .catch((error) => console.log("error: " + error));
   };
@@ -25,15 +29,16 @@ export const Form = () => {
       <form onSubmit={handleSubmit}>
         <div className="Input">
           <input
+            data-testid="input"
             className="Input-text"
             id="input"
             name="inputText"
             onChange={handlePlayerChanges}
-            placeholder="Enter Player's Name"
+            placeholder="Enter Player's Full Name"
             type="text"
             value={player}
           />
-          <button>Looking for Id</button>
+          <button data-testid="submit">Check if exist</button>
         </div>
       </form>
     </div>

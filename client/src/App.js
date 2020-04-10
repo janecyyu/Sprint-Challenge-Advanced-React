@@ -28,7 +28,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <h1>my App</h1>
+        <h1>Player List</h1>
        <Form />
         <div className="player">
           {this.state.data.map((person) => (
