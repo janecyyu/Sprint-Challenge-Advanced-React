@@ -14,6 +14,7 @@ test('Title is appearing',()=>{
   // Act
   // Assert
   const { getByText } = render(<App />);
-  const headerText = getByText(/Player List/i);
-  //expect(headerText).toBeInTheDocument();
+  // const headerText = getByText(/Player List/i);
+  // expect(headerText).toBeInTheDocument();
+  expect(getByText(/Player List/i)).toBeInTheDocument;
 });
