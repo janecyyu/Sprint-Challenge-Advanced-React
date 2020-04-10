@@ -1,8 +1,7 @@
 import React from "react";
 import "./App.css";
 import axios from "axios";
-
-
+import {Form} from './Form';
 
 class App extends React.Component {
   constructor() {
@@ -26,27 +25,11 @@ class App extends React.Component {
 
   render() {
     //console.log(this.state.data);
+
     return (
       <div className="App">
         <h1>my App</h1>
-        <div className="Wrapper">
-          <form>
-            <div className="Input">
-              <input
-                className="Input-text"
-                id="input"
-                name="inputText"
-                // onChange={handleChanges}
-                placeholder="Enter Player's Name"
-                type="text"
-                // value={inputText}
-              />
-              <label htmlFor="input" className="Input-label">
-                Looking for Id
-              </label>
-            </div>
-          </form>
-        </div>
+       <Form />
         <div className="player">
           {this.state.data.map((person) => (
             <ul>
